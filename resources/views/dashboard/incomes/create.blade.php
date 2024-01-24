@@ -20,12 +20,12 @@
                 <label for="category">Income Category</label>
                 <select class="form-select p-3 mb-4 mt-2" name="category" id="category" required>
                 <option selected disabled>Pick a category</option>
-                <option value="wages">Wage</option>
-                <option value="salary">Salary</option>
-                <option value="gift">Gift</option>
-                <option value="commission">Commission</option>
-                <option value="investment">Investment</option>
-                <option value="others">Others</option>
+                <option value="Wage">Wage</option>
+                <option value="Salary">Salary</option>
+                <option value="Gift">Gift</option>
+                <option value="Commission">Commission</option>
+                <option value="Investment">Investment</option>
+                <option value="Others">Others</option>
                 </select>
             </div>
             <div class="form-group">

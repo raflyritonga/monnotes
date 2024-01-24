@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row">
             @include('dashboard.partials.sidebar')
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mx-auto p-5" style="min-height: 100vh">
+            <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4 p-5" style="min-height: 100vh">
                 @yield('dashboard_content')
 
                 {{-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> --}}

@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item mt-2 mb-2">
-                    <a class="nav-link d-flex align-items-center gap-4 pt-4 pb-4" href="/dashboard/tables">
+                    <a class="nav-link d-flex align-items-center gap-4 pt-4 pb-4" href="/dashboard/{{ auth()->user()->username }}/tables">
                         <i class='bx bx-table'></i>
                         View Tables
                     </a>

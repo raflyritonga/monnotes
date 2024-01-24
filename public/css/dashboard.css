@@ -52,10 +52,10 @@
 }
 
 /*
-    *Custom Button
+    *Custom #submitBtn
 */
 
-button {
+#submitBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,15 +75,15 @@ button {
   transition: all 0.5s ease;
 }
 
-button {
+#submitBtn {
   transform: translateY(20px);
 }
-button:active {
+#submitBtn:active {
   transform: scale(0.9);
   transition: all 100ms ease;
 }
 
-button svg {
+#submitBtn svg {
   transition: all 0.5s ease;
   z-index: 2;
 }
@@ -93,7 +93,7 @@ button svg {
   transition-delay: 300ms;
 }
 
-button:hover svg {
+#submitBtn:hover svg {
   transform: scale(3) translate(50%);
   cursor: pointer;
 }
@@ -106,13 +106,13 @@ button:hover svg {
   z-index: 2;
 }
 
-button:hover .now {
+#submitBtn:hover .now {
   transform: translateX(10px);
   transition-delay: 300ms;
   cursor: pointer;
 }
 
-button:hover .play {
+#submitBtn:hover .play {
   transform: translateX(200%);
   transition-delay: 300ms;
 }
