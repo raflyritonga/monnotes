@@ -4,7 +4,7 @@
 
 <div class="d-flex align-items-center">
     <div class="container col-lg-8 p-5 rounded-3 shadow mb-5 bg-body-tertiary">
-        <h4>Add Income</h4>
+        <h4>Edit Income</h4>
         <hr>
         <form class="p-lg-3 mb-3" method="POST" action="/dashboard/income/{{ $income->id }}">
             @method('PUT')

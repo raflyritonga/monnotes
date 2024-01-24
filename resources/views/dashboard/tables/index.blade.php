@@ -20,7 +20,7 @@
                 <td scope="row">{{ $income->date_of_income }}</td>
                 <td scope="row">{{ $income->income_description }}</td>
                 <td scope="row">{{ $income->category }}</td>
-                <td scope="row">Rp. {{ $income->amount }}</td>
+                <td scope="row">Rp. {{ number_format($income->amount, 0, ',', '.') }}</td>
                 <td scope="row">
                     <a href="/dashboard/income/{{ $income->id }}/edit" class="text-decoration-none" style="margin-right: 1.2rem"><i class="bi bi-pencil-fill"></i></a>
                     <form action="/dashboard/income/{{ $income->id }}" method="post" class="d-inline">
@@ -45,15 +45,29 @@
                 <th scope="col">Date</th>
                 <th scope="col">Expense Description</th>
                 <th scope="col">Category</th>
+                <th scope="col">Amount</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($userIncomes as $income)
+            @foreach ($userExpenses as $expense)
             <tr>
-                <td scope="row">{{ $income->date_of_income }}</td>
-                <td scope="row">{{ $income->income_description }}</td>
-                <td scope="row">{{ $income->category }}</td>
+                <td scope="row">{{ $expense->date_of_expense }}</td>
+                <td scope="row">{{ $expense->expense_description }}</td>
+                <td scope="row">{{ $expense->category }}</td>
+                <td scope="row">Rp. {{ number_format($expense->amount, 0, ',', '.') }}</td>
+
+                <td scope="row">
+                    <a href="/dashboard/expense/{{ $expense->id }}/edit" class="text-decoration-none" style="margin-right: 1.2rem"><i
+                            class="bi bi-pencil-fill"></i></a>
+                    <form action="/dashboard/expense/{{ $expense->id }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0 p-2"
+                            onclick="return confirm('Do you really want to delete this record?')">
+                            <i class="bi bi-trash-fill"></i></button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>

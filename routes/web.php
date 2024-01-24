@@ -5,6 +5,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\TablesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\ProviderController;
+use App\Http\Controllers\ExpenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.index', [
+        'active' => 'my_stats'
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard/{username:username}/tables', [TablesController::class, 'index'])->middleware(['auth', 'verified'])->name('viewTables');
 Route::resource('/dashboard/income', IncomeController::class)->middleware(['auth', 'verified']);
+Route::resource('/dashboard/expense', ExpenseController::class)->middleware(['auth', 'verified']);
 
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);

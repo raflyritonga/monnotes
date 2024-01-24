@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Income;
+use App\Models\Expense;
 use Illuminate\Http\Request;
 
-class IncomeController extends Controller
+class ExpenseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('dashboard.incomes.create', [
-            'active' => 'add_incomes'
+        return view('dashboard.expenses.create', [
+            "active" => "add_expense"
         ]);
     }
 
@@ -31,21 +31,21 @@ class IncomeController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'income_description' => 'required|max:255',
+            'expense_description' => 'required|max:255',
             'amount' => 'required',
             'category' => 'required',
-            'date_of_income' => 'required|date'
+            'date_of_expense' => 'required|date'
         ]);
         $validatedData['user_id'] = auth()->user()->id;
 
-        Income::create($validatedData);
+        Expense::create($validatedData);
         return redirect()->route('viewTables', ['username' => auth()->user()->username])->with('success', 'Record added successfully!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Income $income)
+    public function show(Expense $expense)
     {
         //
     }
@@ -53,30 +53,30 @@ class IncomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Income $income)
+    public function edit(Expense $expense)
     {
-        return view('dashboard.incomes.edit',[
-            'income' => $income
+        return view('dashboard.expenses.edit', [
+            'expense' => $expense
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Income $income)
+    public function update(Request $request, Expense $expense)
     {
         $rules = [
-            'income_description' => 'required|max:255',
+            'expense_description' => 'required|max:255',
             'amount' => 'required',
             'category' => 'required',
-            'date_of_income' => 'required|date'
+            'date_of_expense' => 'required|date'
         ];
 
         $validatedData = $request->validate($rules);
 
         $validatedData['user_id'] = auth()->user()->id;
 
-        Income::where('id', $income->id)
+        Expense::where('id', $expense->id)
             ->update($validatedData);
 
         return redirect()->route('viewTables', ['username' => auth()->user()->username])->with('success', 'Record updated successfully!');
@@ -85,9 +85,9 @@ class IncomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Income $income)
+    public function destroy(Expense $expense)
     {
-        Income::destroy($income->id);
+        Expense::destroy($expense->id);
         return redirect()->route('viewTables', ['username' => auth()->user()->username])->with('success', 'Record deleted successfully!');
     }
 }

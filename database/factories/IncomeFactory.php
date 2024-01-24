@@ -17,7 +17,11 @@ class IncomeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'income_description' => fake()->sentence(mt_rand(1, 5)),
+            'amount' => fake()->randomNumber(6, true),
+            'date_of_income' => date('Y_m_d'),
+            'user_id' => 8,
+            'category' => fake()->randomElement(['Salary', 'Commission', 'Wage', 'Investment', 'Others', 'Gift'])
         ];
     }
 }
