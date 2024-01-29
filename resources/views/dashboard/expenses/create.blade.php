@@ -36,7 +36,7 @@
                 <label for="dateOfExpense">Date of Expense</label>
                 <input type="date" class="form-control p-3 mb-4 mt-2" id="date_of_expense" name="date_of_expense" required>
             </div>
-            @include('dashboard.components.button')
+            @include('dashboard.components.submitBtn')
         </form>
     </div>
 </div>

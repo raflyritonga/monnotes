@@ -18,8 +18,8 @@ class TablesController extends Controller
         if ($user) {
             $userId = $user->id;
 
-            $userIncomes = Income::where('user_id', $userId)->latest()->paginate(10)->withQueryString();
-            $userExpenses = Expense::where('user_id', $userId)->latest()->paginate(10)->withQueryString();
+            $userIncomes = Income::where('user_id', $userId)->paginate(10, ['*'], 'income-data');
+            $userExpenses = Expense::where('user_id', $userId)->paginate(10,['*'], 'expense-data');
 
             return view('dashboard.tables.index', [
                 'userIncomes' => $userIncomes,

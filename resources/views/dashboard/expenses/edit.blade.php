@@ -40,7 +40,7 @@
                 <input type="date" class="form-control p-3 mb-4 mt-2" id="date_of_expense" name="date_of_expense" value="{{ old('date_of_expense', $expense->date_of_expense) }}"
                     required>
             </div>
-            @include('dashboard.components.button')
+            @include('dashboard.components.updateBtn')
         </form>
     </div>
 </div>

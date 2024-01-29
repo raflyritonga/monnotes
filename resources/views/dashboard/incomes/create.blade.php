@@ -32,7 +32,7 @@
                 <label for="dateOfIncome">Date of Income</label>
                 <input type="date" class="form-control p-3 mb-4 mt-2" id="date_of_income" name="date_of_income" required>
             </div>
-            @include('dashboard.components.button')
+            @include('dashboard.components.submitBtn')
         </form>
     </div>
 </div>

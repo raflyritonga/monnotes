@@ -2,7 +2,7 @@
 
 @section('dashboard_content')
 
-<div class="d-flex align-items-center">
+<div class="d-flex align-items-center ">
     <div class="container col-lg-8 p-5 rounded-3 shadow mb-5 bg-body-tertiary">
         <h4>Edit Income</h4>
         <hr>
@@ -36,7 +36,7 @@
                 <input type="date" class="form-control p-3 mb-4 mt-2" id="date_of_income" name="date_of_income" value="{{ old('date_of_income', $income->date_of_income) }}"
                     required>
             </div>
-            @include('dashboard.components.button')
+            @include('dashboard.components.updateBtn')
         </form>
     </div>
 </div>

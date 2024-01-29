@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard/{username:username}/tables', [TablesController::class, 'index'])->middleware(['auth', 'verified'])->name('viewTables');
+Route::get('/dashboard/tables', [TablesController::class, 'index'])->middleware(['auth', 'verified'])->name('viewTables');
 Route::resource('/dashboard/income', IncomeController::class)->middleware(['auth', 'verified']);
 Route::resource('/dashboard/expense', ExpenseController::class)->middleware(['auth', 'verified']);
 
@@ -36,9 +36,9 @@ Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect'])
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 
