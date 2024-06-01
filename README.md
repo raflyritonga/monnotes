@@ -3,7 +3,7 @@ Monnotes is a website developed to simplify the management and tracking of finan
 
 ## Tech Stack
 
-**Client:** PHP, Blade Template Engine
+**Client:** HTML, CSS, JS, Bootstrap, Blade Template Engine
 
 **Server:** PHP, Laravel
 
